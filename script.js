@@ -163,6 +163,41 @@ $(document).ready(function () {
       }
     });
   });
+	document.addEventListener('DOMContentLoaded', function() {
+    const container = document.querySelector('body'); // Adjust selector based on your structure
+    let lastMousePosition = { x: 0, y: 0 };
+
+    function createTrailElement(x, y) {
+        const trailElement = document.createElement('span');
+        trailElement.className = 'trail';
+        trailElement.innerHTML = '🍕'; // Pizza emoji
+        trailElement.style.left = `${x}px`;
+        trailElement.style.top = `${y}px`;
+
+        return trailElement;
+    }
+
+    function updateTrail() {
+        const currentMousePosition = { x: event.clientX, y: event.clientY };
+        const dx = currentMousePosition.x - lastMousePosition.x;
+        const dy = currentMousePosition.y - lastMousePosition.y;
+
+        const trailElement = createTrailElement(currentMousePosition.x, currentMousePosition.y);
+        container.appendChild(trailElement);
+
+        // Move the trail element towards the last known mouse position
+        trailElement.style.transform = `translate(${dx}px, ${dy}px)`;
+
+        // Fade out the trail element after a delay
+        setTimeout(() => {
+            trailElement.remove();
+        }, 2000); // Adjust duration as needed
+
+        lastMousePosition = currentMousePosition;
+    }
+
+    container.addEventListener('mousemove', updateTrail);
+});
 
   //ajax form
   $(function () {
