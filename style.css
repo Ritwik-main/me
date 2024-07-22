@@ -22,12 +22,6 @@ p {
   color: #484848;
 }
 
-.trail {
-    position: absolute;
-    pointer-events: none;
-    z-index: 1;
-}
-
 .section {
   text-align: center;
 }
