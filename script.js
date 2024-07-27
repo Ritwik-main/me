@@ -12,6 +12,7 @@ $(document).ready(function() {
         particle.css({
             left: x,
             top: y,
+            z-index: 100;
             width: size + 'px',
             height: size + 'px',
             backgroundColor: color
