@@ -1,4 +1,25 @@
 /* general styles */
+#trail-container {
+  position: relative;
+}
+
+.trail {
+  position: absolute;
+  font-size: 32px; /* Adjust size as needed */
+  pointer-events: none;
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
 
 body {
   font-family: "Raleway", sans-serif !important;
@@ -204,7 +225,7 @@ p {
 }
 
 .aboutme {
-  background: url("https://s3-us-west-2.amazonaws.com/files.bradengelhardt.com/brad-bg-main.jpg")
+    background-image: url('bg.jpg');
     no-repeat;
   background-size: cover;
 }
